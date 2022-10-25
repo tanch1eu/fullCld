@@ -6,6 +6,7 @@ import {
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
+import { AUTO_STYLE } from '@angular/animations';
 // make the <full-calendar> element globally available
 defineFullCalendarElement();
 
@@ -21,10 +22,16 @@ export class AppComponent {
     plugins: [dayGridPlugin, listPlugin, timeGridPlugin],
     initialView: 'dayGridMonth',
     headerToolbar: {
-      left: 'prevYear,prev,today,next,nextYear',
+      left: 'prevYear,prev today next,nextYear',
       center: 'title',
       right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
     },
+    footerToolbar: {
+      left: 'listYear',
+    },
+    handleWindowResize: true,
+    aspectRatio: 2,
+    contentHeight: 420,
   };
 
   toggleWeekends() {
